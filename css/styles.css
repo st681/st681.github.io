@@ -56,10 +56,42 @@ h3{font-size:20px}
 .btn--sm{padding:10px 14px; font-size:14px}
 
 /* header */
-.header{position:sticky; top:0; z-index:50; background:rgba(10,12,16,.72); backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid rgba(255,255,255,.04)}
-.header__row{display:flex; align-items:center; justify-content:space-between; height:64px}
-.logo{display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; font-weight:700}
-.logo img{height:32px; width:auto}
+.header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,12,16,.72);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.04)
+}
+.header__row{
+  display:flex; align-items:center; justify-content:space-between;
+  height:80px; /* taller for logo + phone */
+}
+.logo{
+  display:flex; align-items:center; gap:12px;
+  color:var(--text); text-decoration:none; font-weight:800
+}
+.logo img{
+  height:56px; width:auto; border-radius:8px;
+}
+.logo span{
+  font-size:1.4rem; font-weight:700;
+}
+
+/* phone link in header */
+.header__contact{
+  margin-left:auto; margin-right:12px;
+  display:flex; align-items:center;
+}
+.header__phone{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff; text-decoration:none; font-weight:700;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+}
+.header__phone:hover{ filter:brightness(1.08) }
 
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{color:var(--text); text-decoration:none; opacity:.92}
@@ -111,6 +143,7 @@ h3{font-size:20px}
   margin: 0 auto 12px;
   margin-top: 20px;
 }
+
 /* Prepaid badges */
 .carrier-badges{display:flex; gap:10px; list-style:none; padding:0; margin:14px 0 24px; flex-wrap:wrap}
 .badge{background:#0e131a; border:1px solid var(--border); padding:8px 12px; border-radius:999px}
@@ -144,42 +177,29 @@ h3{font-size:20px}
 /* Responsive */
 @media (max-width: 900px){
   .hero__grid, .contact__grid{grid-template-columns: 1fr}
-  .nav{display:none; position:absolute; top:64px; right:20px; left:20px; background:#0e1116; border:1px solid var(--border); border-radius:12px; padding:12px; flex-direction:column}
+  .nav{display:none; position:absolute; top:80px; right:20px; left:20px; background:#0e1116; border:1px solid var(--border); border-radius:12px; padding:12px; flex-direction:column}
   .nav a{padding:8px 10px}
   .nav-toggle{display:block}
   .nav.open{display:flex}
 }
 
-/* --- Mobile polish --- */
 @media (max-width: 600px){
-  /* tighter sections + bigger, easier taps */
   .section{padding:56px 0}
   .btn{padding:14px 18px; font-size:16px}
-
-  /* header */
-  .header__row{height:60px}
-  .logo img{height:24px}
-
-  /* hero */
+  .header__row{height:68px}
+  .logo img{height:40px}
+  .header__phone{padding:10px 12px; font-size:15px}
   .hero{padding:56px 0 24px}
   .hero__copy h1{font-size:32px}
   .hero__badges li{font-size:14px}
-
-  /* cards & grids become single column */
   .cards, .phone-grid, .features, .steps{grid-template-columns: 1fr}
-
-  /* logo cards: keep logos visible but not huge */
   .logo-card .brand-logo{height:64px}
-
-  /* contact/map */
   .map iframe{height:240px}
-  .contact-buttons .btn{flex:1}     /* full-width buttons on mobile */
+  .contact-buttons .btn{flex:1}
 }
 
-/* very small phones */
 @media (max-width: 380px){
   .btn{font-size:15px}
   .hero__cta{gap:10px}
   .hero__badges{gap:8px}
 }
-
